@@ -13,13 +13,16 @@ let initialState = RootModel.create({
 	},
 });
 
+if (localStorage.getItem("rootState")) {
+	initialState = JSON.parse(localStorage.getItem("rootState") || "{}");
+}
+
 export default RootModel;
 
 export const rootStore = initialState;
 
 onSnapshot(rootStore, (snapshot) => {
-	console.log("Snapshot: ", snapshot);
-	// localStorage.setItem('rootState', JSON.stringify(snapshot));
+	localStorage.setItem("rootState", JSON.stringify(snapshot));
 });
 
 export type Root = Instance<typeof RootModel>;
