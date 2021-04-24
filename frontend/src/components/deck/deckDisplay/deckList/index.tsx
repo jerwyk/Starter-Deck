@@ -1,6 +1,6 @@
 import React, { useMemo } from "react";
 import { Card } from "src/mobx/cardModel";
-import withWidth from "@material-ui/core/withWidth";
+import withWidth, { isWidthUp } from "@material-ui/core/withWidth";
 import { Breakpoint } from "@material-ui/core/styles/createBreakpoints";
 import {
 	List,
@@ -25,6 +25,22 @@ interface DeckListProps {
 }
 
 function DeckList({ name, cards, width }: DeckListProps) {
+	const getGridListCols = () => {
+		if (isWidthUp("xl", width)) {
+			return 4;
+		}
+		if (isWidthUp("lg", width)) {
+			return 3;
+		}
+		if (isWidthUp("md", width)) {
+			return 2;
+		}
+		if (isWidthUp("sm", width)) {
+			return 1;
+		}
+		return 2;
+	};
+
 	const groups: any = {
 		commander: "Commanders",
 		planeswalker: "Planeswalkers",
@@ -65,7 +81,7 @@ function DeckList({ name, cards, width }: DeckListProps) {
 	}, [cards]);
 
 	return (
-		<div className="deck-list-columns">
+		<div style={{ columnCount: getGridListCols() }}>
 			{Object.keys(groups).map(
 				(key) =>
 					groupedDeck[key] && (

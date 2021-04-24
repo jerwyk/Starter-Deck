@@ -79,6 +79,7 @@ const EditorModel = t
 			self.deck.replace(
 				self.deck.map((card) => {
 					if (card.name === newEdition.name) {
+						newEdition.quantity = card.quantity;
 						return newEdition;
 					}
 					return card;

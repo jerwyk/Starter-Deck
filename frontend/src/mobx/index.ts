@@ -14,7 +14,9 @@ let initialState = RootModel.create({
 });
 
 if (localStorage.getItem("rootState")) {
-	initialState = JSON.parse(localStorage.getItem("rootState") || "{}");
+	initialState = RootModel.create(
+		JSON.parse(localStorage.getItem("rootState") || "{}")
+	);
 }
 
 export default RootModel;
