@@ -1,0 +1,47 @@
+.card-double-face-container {
+	top: 0;
+	left: 0;
+}
+.card-front-face {
+	position: absolute;
+	bottom: 1.4%;
+	left: 0;
+	z-index: 1;
+	max-height: 88%;
+	object-fit: scale-down;
+	object-position: left bottom;
+}
+
+.card-container {
+	bottom: 0;
+	border-radius: 11px;
+}
+
+.card-back-face {
+	position: absolute;
+	right: 0;
+	top: 0;
+	max-height: 88%;
+	object-fit: scale-down;
+	object-position: right top;
+}
+
+.card-back-face:hover {
+	z-index: 2;
+}
+
+.card-action-bar-container {
+	display: none;
+	position: absolute;
+	z-index: 3;
+	bottom: 1.4%;
+	background-color: #dfe2dfb0;
+	border: 2px solid #999999b0;
+	padding: 2px;
+	border-radius: 0 8px 0 6.5px;
+}
+
+.card-container:hover + .card-action-bar-container,
+.card-action-bar-container:hover {
+	display: block;
+}

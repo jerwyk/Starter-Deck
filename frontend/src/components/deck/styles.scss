@@ -1,0 +1,27 @@
+.import-text-field {
+	height: 380px;
+	padding: 0 12px;
+}
+
+.deck-view-container {
+	top: 0;
+	padding: 36px;
+	overflow-y: auto;
+	min-height: 100%;
+}
+
+.deck-menu {
+	margin: 20px 0;
+	display: flex;
+	justify-content: flex-start;
+}
+
+.deck-title {
+	//left: 0;
+}
+
+.deck-counter {
+	bottom: 4%;
+	right: 2%;
+	position: fixed;
+}
