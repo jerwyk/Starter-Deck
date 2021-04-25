@@ -139,9 +139,6 @@ export default class DeckView extends Component<DeckViewProps, DeckViewState> {
 					onClose={() => {
 						this.setState({ changeNameOpen: false });
 					}}
-					onConfirm={(newName) => {
-						this.setState({ deckTitle: newName });
-					}}
 				/>
 				<div className="deck-view-title"></div>
 				<div className="deck-menu">

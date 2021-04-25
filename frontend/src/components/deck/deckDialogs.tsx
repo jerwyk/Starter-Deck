@@ -12,6 +12,7 @@ import TextField from "@material-ui/core/TextField";
 import React, { useState } from "react";
 import "./styles.scss";
 import { identifier } from "../../types";
+import { useMst } from "src/mobx";
 
 interface IBulkImporterProps {
 	open: boolean;
@@ -94,18 +95,18 @@ interface INameChangerProps {
 	name?: string;
 	open: boolean;
 	onClose: () => void;
-	onConfirm: (name: string) => void;
 }
 
-function NameChanger({ name, open, onClose, onConfirm }: INameChangerProps) {
+function NameChanger({ name, open, onClose }: INameChangerProps) {
 	const [newName, setnewName] = useState(name || "");
+	const { editor } = useMst();
 
 	const handleClose = () => {
 		onClose();
 	};
 
 	const handleImport = () => {
-		onConfirm(newName);
+		editor.setDeckName(newName);
 		onClose();
 	};
 
