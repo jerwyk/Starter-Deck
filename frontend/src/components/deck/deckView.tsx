@@ -96,6 +96,10 @@ export default class DeckView extends Component<DeckViewProps, DeckViewState> {
 		this.setState({ changeNameOpen: true });
 	};
 
+	clearAction = () => {
+		this.props.rootStore!.editor.clearDeck();
+	};
+
 	handleCardDelete = (cardId: string) => {
 		this.props.rootStore!.editor.removeCard(cardId);
 	};
@@ -116,6 +120,7 @@ export default class DeckView extends Component<DeckViewProps, DeckViewState> {
 				<MenuItem onClick={this.changeNameAction}>Change Name</MenuItem>
 				<MenuItem onClick={this.importAction}>Bulk Import</MenuItem>
 				<MenuItem onClick={this.exportAction}>Export to tts</MenuItem>
+				<MenuItem onClick={this.clearAction}>Clear</MenuItem>
 			</Menu>
 		);
 

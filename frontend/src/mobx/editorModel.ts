@@ -87,6 +87,9 @@ const EditorModel = t
 			);
 			self.focusedCard = newEdition.id;
 		},
+		clearDeck() {
+			self.deck.replace([]);
+		},
 	}))
 	.views((self) => ({}));
 
