@@ -52,15 +52,15 @@ export default class CardDetail extends Component<CardDetailProps> {
 			<div className="card-detail-info-container">
 				<Typography variant="h5">{card?.name}</Typography>
 				<Divider />
-				{card.card_faces && card.card_faces.length > 0 ? (
+				{card?.card_faces && card?.card_faces.length > 0 ? (
 					<img
 						style={{
 							height: "100%",
 							width: "100%",
 							borderRadius: "11px",
 						}}
-						src={card.card_faces[0].image_uris?.normal}
-						alt={card.name}
+						src={card?.card_faces[0].image_uris?.normal}
+						alt={card?.name}
 					></img>
 				) : (
 					<img
@@ -69,8 +69,8 @@ export default class CardDetail extends Component<CardDetailProps> {
 							width: "100%",
 							borderRadius: "11px",
 						}}
-						src={card.image_uris?.normal}
-						alt={card.name}
+						src={card?.image_uris?.normal}
+						alt={card?.name}
 					></img>
 				)}
 				<Divider />

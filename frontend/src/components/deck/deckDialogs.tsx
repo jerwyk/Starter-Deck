@@ -23,17 +23,20 @@ function BulkImporter({ open, onClose, onImport }: IBulkImporterProps) {
 	const createIdentifiers = () => {
 		const identifiers: identifier[] = [];
 		cardNames.split("\n").forEach((card) => {
-			const [num, ...name] = card.split(" ");
-			if (name) {
-				for (var i = 0; i < Number(num); ++i)
-					identifiers.push({
-						name: name.join(" "),
-					});
-			} else {
-				identifiers.push({
-					name: num,
-				});
-			}
+			// eslint-disable-next-line
+			const [msg, num, name, set] =
+				card.match(/([0-9]*)x?([^()\n]*)(\(.*\))?/) || [];
+			console.log(num, name, set);
+
+			for (var i = 0; i < Number(num || "1"); ++i)
+				identifiers.push(
+					Object.assign(
+						{
+							name: name,
+						},
+						set ? { set: set?.toLowerCase().substring(1, set.length - 1) } : {}
+					)
+				);
 		});
 		return identifiers;
 	};
